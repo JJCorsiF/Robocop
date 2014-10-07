@@ -12,20 +12,30 @@ int main(){
 	string array[1];
 	Robocop robocop4(*array);
 	
+	Robocop robocop5(50.0);
+	
 	robocop1.falar("Ola!");
 	robocop1.correr(55.0);
     robocop2.correr();
 	robocop4.falar(robocop4.getDiretivaPadrao());
     robocop3.correr(85.0);
+	robocop5.correr(20.0);
+	robocop5.falar(robocop5.getDiretivaPadrao());
 	
 	robocop1.mostrarDetalhes();
 	robocop1.olharDireita();
+	
 	robocop2.mostrarDetalhes();
 	robocop2.olharDireita();
+	
 	robocop3.mostrarDetalhes();
 	robocop3.olharEsquerda();
-	robocop4.olharEsquerda();
+	
 	robocop4.mostrarDetalhes();
+	robocop4.olharEsquerda();
+	
+	robocop5.olharDireita();
+	robocop5.mostrarDetalhes();
 	
 	cout << "Numero de Robocops: " << Robocop::getNumeroInstancias() << endl;
 	

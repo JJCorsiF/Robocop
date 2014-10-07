@@ -26,7 +26,7 @@ Robocop::Robocop(const Robocop &robocop){
 Robocop::Robocop(double velAtual){
 	setIDOriginal(++numeroInstancias);
 	initDiretivas();
-	setDiretivaPadrao(diretivaPadrao);
+	setDiretivaPadrao(this->diretivas[0]);
 	setVelocidade(velAtual);
 }
 
@@ -54,7 +54,7 @@ Robocop::~Robocop(){
 
 void Robocop::initDiretivas(){
 	for(unsigned int i = 0; i < diretivas->size(); i++){
-		diretivas[i] = "Reprogramar.";
+		this->diretivas[i] = "Reprogramar.";
 	}
 }
 
