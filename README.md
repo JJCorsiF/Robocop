@@ -18,7 +18,7 @@ Requisitos de implementação
   8. Dois métodos constantes (não pode ser get) - OK
   9. Um array - OK
   10. Uma função inline (não pode ser get ou set) - OK
-  11. Método com passagem por referência usando ponteiro - ??
+  11. Método com passagem por referência usando ponteiro - OK
   12. Método static - deve ser chamado no main - OK
   
   13. Relacionar a classe "Data"
