@@ -8,6 +8,7 @@ int Robocop::numeroInstancias = 0;
 string nome = "Robocop";
 
 Robocop::Robocop(){
+	setDataTransformacao(new Data());
 	setIDOriginal(++numeroInstancias);
 	initDiretivas();
 	setDiretivaPadrao("");
@@ -15,6 +16,7 @@ Robocop::Robocop(){
 }
 
 Robocop::Robocop(const Robocop &robocop){
+	dataTransformacao = robocop.dataTransformacao;
 	idOriginal = ++numeroInstancias;
 	for(int i = 0; i < robocop.getNumeroDiretivas(); i++){
 		diretivas[i] = robocop.diretivas[i];
@@ -24,6 +26,7 @@ Robocop::Robocop(const Robocop &robocop){
 }
 
 Robocop::Robocop(double velAtual){
+	setDataTransformacao(new Data());
 	setIDOriginal(++numeroInstancias);
 	initDiretivas();
 	setDiretivaPadrao(this->diretivas[0]);
@@ -31,6 +34,7 @@ Robocop::Robocop(double velAtual){
 }
 
 Robocop& Robocop::operator = (const Robocop& outro){
+	dataTransformacao = outro.dataTransformacao;
 	idOriginal = ++numeroInstancias;
 	for(int i = 0; i < numeroDiretivas; i++){
 		diretivas[i] = outro.diretivas[i];
@@ -41,6 +45,7 @@ Robocop& Robocop::operator = (const Robocop& outro){
 }
 
 Robocop::Robocop(string &conjuntoDiretivas, string diretPadrao){
+	setDataTransformacao(new Data());
 	setIDOriginal(++numeroInstancias);
 	initDiretivas();
 	setDiretivas(conjuntoDiretivas);
@@ -56,6 +61,14 @@ void Robocop::initDiretivas(){
 	for(unsigned int i = 0; i < diretivas->size(); i++){
 		this->diretivas[i] = "Reprogramar.";
 	}
+}
+
+void Robocop::setDataTransformacao(Data* data){
+	dataTransformacao = data;
+}
+
+Data* Robocop::getDataTransformacao() const {
+	return dataTransformacao;
 }
 
 void Robocop::setIDOriginal(int id){
@@ -124,7 +137,7 @@ int Robocop::getNumeroInstancias(){
 
 void Robocop::correr(){
 	cout << "Aumentando velocidade do Robocop " << getIDOriginal() << " em 10 Km/h...\n" << endl;
-	setVelocidade(velocidade + 10);
+	setVelocidade(velocidade + 10.0);
 	cout << "A velocidade atual do Robocop " << getIDOriginal() << " eh: " << getVelocidade() << " Km/h...\n" << endl;
 }
 
@@ -149,4 +162,8 @@ void Robocop::mostrarDetalhes() const {
 	<< "Numero de diretivas: " << getNumeroDiretivas() << "\n"
 	<< "Diretiva padrao: " << getDiretivaPadrao() << "\n"
 	<< endl;
+}
+
+void Robocop::parar(){
+	setVelocidade(0.0);
 }

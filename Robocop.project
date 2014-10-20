@@ -94,6 +94,10 @@
     <File Name="main.cpp"/>
     <File Name="Robocop.h"/>
     <File Name="Robocop.cpp"/>
+    <File Name="Pessoa.h"/>
+    <File Name="Pessoa.cpp"/>
+    <File Name="Data.h"/>
+    <File Name="Data.cpp"/>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>

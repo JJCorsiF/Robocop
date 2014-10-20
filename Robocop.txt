@@ -1,1 +1,1 @@
-./Debug/main.cpp.o ./Debug/Robocop.cpp.o   
+./Debug/main.cpp.o ./Debug/Robocop.cpp.o ./Debug/Pessoa.cpp.o ./Debug/Data.cpp.o   
