@@ -20,11 +20,10 @@ Requisitos de implementação
   10. Uma função inline (não pode ser get ou set) - OK
   11. Método com passagem por referência usando ponteiro - OK
   12. Método static - deve ser chamado no main - OK
-  
-  13. Relacionar a classe "Data"
-  14. Criar duas classes relacionadas
-  15. Alocação dinâmica de memória
-  16. Friend
-  17. Operator <<
+  13. Relacionar a classe "Data" - OK
+  14. Criar duas classes relacionadas - OK
+  15. Alocação dinâmica de memória - OK
+  16. Friend - OK
+  17. Operator << - OK
   18. Operator = - OK
   19. vector push_back
