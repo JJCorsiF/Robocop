@@ -4,12 +4,23 @@
 #include <string>
 using std::string;
 
-class Pessoa
-{
+#include <iostream>
+using namespace std;
+
+class Pessoa{
 public:
 	Pessoa();
+	Pessoa(const Pessoa&);
 	~Pessoa();
+	/*
+	virtual Pessoa& operator = (const Pessoa&);
+	virtual ostream& operator << (const Pessoa&);
+	*/
+protected:
+	int id;
+	void mostrarDetalhes() const;
 private:
+	static int numeroPessoas;
 	string nome;
 };
 
