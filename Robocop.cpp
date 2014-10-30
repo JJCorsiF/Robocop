@@ -57,7 +57,7 @@ Robocop::Robocop(string &conjuntoDiretivas, double vel){// : Pessoa(){
 	idOriginal = ++numeroInstancias;
 	initDiretivas();
 	setDiretivas(conjuntoDiretivas);
-	velocidade = 0.0;
+	velocidade = vel;
 }
 
 Robocop::~Robocop(){
