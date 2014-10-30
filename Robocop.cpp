@@ -52,7 +52,7 @@ ostream& Robocop::operator << (const Robocop& cop){
 	return cout << cop.idOriginal;
 }
 */
-Robocop::Robocop(string &conjuntoDiretivas, string diretPadrao){// : Pessoa(){
+Robocop::Robocop(string &conjuntoDiretivas, double vel){// : Pessoa(){
 	dataTransformacao = new Data();
 	idOriginal = ++numeroInstancias;
 	initDiretivas();

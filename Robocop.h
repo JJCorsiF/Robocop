@@ -121,7 +121,7 @@ public:
 	Robocop(const Robocop&); //construtor de cópia
 	Robocop(double);
 	Robocop(int);
-	Robocop(string&, string = "Nunca devo desobedecer as ordens do comando.");
+	Robocop(string&, double = 0.0);
 	~Robocop();
 	//Robocop& operator = (const Robocop&); //operator =
 	//ostream& operator << (const Robocop&); //operator <<
