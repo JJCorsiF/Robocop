@@ -11,11 +11,11 @@ class Pessoa{
 public:
 	Pessoa();
 	Pessoa(const Pessoa&);
+	Pessoa(string);
+	Pessoa(int);
 	~Pessoa();
-	/*
-	virtual Pessoa& operator = (const Pessoa&);
+	virtual const Pessoa& operator = (const Pessoa&);
 	virtual ostream& operator << (const Pessoa&);
-	*/
 protected:
 	int id;
 	void mostrarDetalhes() const;

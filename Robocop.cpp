@@ -8,39 +8,49 @@ int Robocop::numeroInstancias = 0;
 const double Robocop::FORCA_MAXIMA = 2000.0;
 const string Robocop::DIRETIVA_PADRAO = "Nunca devo desobedecer as ordens do comando.";
 
-Robocop::Robocop(){// : Pessoa(){
+Robocop::Robocop() : Pessoa(){
 	dataTransformacao = new Data();
-	idOriginal = ++numeroInstancias;
+	numeroDiretivas = 10;
+	++numeroInstancias;
+	idOriginal = this->Pessoa::id;
 	initDiretivas();
 	velocidade = 0.0;
 }
 
-Robocop::Robocop(const Robocop &robocop){// : Pessoa(){
-	//robocop = new Robocop();
+Robocop::Robocop(const Robocop &robocop) : Pessoa((Pessoa&) robocop){
 	dataTransformacao = robocop.dataTransformacao;
+	++numeroInstancias;
+	idOriginal = this->Pessoa::id;
+	numeroDiretivas = robocop.numeroDiretivas;
 	for(int i = 0; i < robocop.getNumeroDiretivas(); i++){
 		diretivas[i] = robocop.diretivas[i];
 	}
 	velocidade = robocop.velocidade;
 }
 
-Robocop::Robocop(int ID){// : Pessoa(){
+Robocop::Robocop(double velAtual) : Pessoa(){
 	dataTransformacao = new Data();
-	setIDOriginal(ID);
+	++numeroInstancias;
+	idOriginal = this->Pessoa::id;
+	numeroDiretivas = 10;
+	initDiretivas();
+	velocidade = velAtual;
+}
+
+Robocop::Robocop(int iD) : Pessoa(iD){
+	dataTransformacao = new Data();
+	++numeroInstancias;
+	idOriginal = this->Pessoa::id;
+	numeroDiretivas = 10;
 	initDiretivas();
 	velocidade = 0.0;
 }
 
-Robocop::Robocop(double velAtual){// : Pessoa(){
-	dataTransformacao = new Data();
-	idOriginal = ++numeroInstancias;
-	initDiretivas();
-	velocidade = velAtual;
-}
-/*
-Robocop& Robocop::operator = (const Robocop& outro){
+const Robocop& Robocop::operator = (const Robocop& outro){
 	dataTransformacao = outro.dataTransformacao;
-	idOriginal = ++numeroInstancias;
+	++numeroInstancias;
+	idOriginal = this->Pessoa::id;
+	numeroDiretivas = 10;
 	for(int i = 0; i < numeroDiretivas; i++){
 		diretivas[i] = outro.diretivas[i];
 	}
@@ -49,13 +59,15 @@ Robocop& Robocop::operator = (const Robocop& outro){
 }
 
 ostream& Robocop::operator << (const Robocop& cop){
-	return cout << cop.idOriginal;
+	return cout << "Robocop com ID = " << cop.idOriginal << "\n";
 }
-*/
+
 Robocop::Robocop(string &conjuntoDiretivas, double vel){// : Pessoa(){
 	dataTransformacao = new Data();
-	idOriginal = ++numeroInstancias;
+	++numeroInstancias;
+	idOriginal = this->Pessoa::id;
 	initDiretivas();
+	numeroDiretivas = 10;
 	setDiretivas(conjuntoDiretivas);
 	velocidade = vel;
 }
@@ -159,7 +171,7 @@ void Robocop::olharEsquerda() const {
 }
 
 void Robocop::mostrarDetalhes() const {
-	//Pessoa::mostrarDetalhes();
+	this->Pessoa::mostrarDetalhes();
 	cout << "Robocop ID: " << getIDOriginal() << "\n"
 	<< "Velocidade atual: " << getVelocidade() << "\n"
 	<< "Velocidade maxima: " << getVelocidadeMax() << "\n"
@@ -171,12 +183,9 @@ void Robocop::mostrarDetalhes() const {
 void Robocop::parar(){
 	setVelocidade(0.0);
 }
-/*
-Robocop& Robocop::transformar(const Pessoa& pessoa){
-	int id = pessoa.id;
-	pessoa = new Robocop(id);
-	Robocop* robo = (Robocop) pessoa;
-	vetorRobocopsTransformados->push_back(robo);
-	return pessoa;
+
+Robocop* Robocop::transformar(int iD){
+	Robocop* robo = new Robocop(iD);
+	vetorRobocopsTransformados.push_back(robo);
+	return robo;
 }
-*/

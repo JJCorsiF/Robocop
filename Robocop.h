@@ -103,13 +103,13 @@ using std::vector;
 #include "Data.h"
 using namespace std;
 
-//#include "Pessoa.h"
-//using namespace std;
+#include "Pessoa.h"
+using namespace std;
 
 #ifndef ROBOCOP_H
 #define ROBOCOP_H
 
-class Robocop{// : public Pessoa{ //Relacionada (herança) da classe Pessoa
+class Robocop : public Pessoa { //Relacionada (herança) da classe Pessoa
 	friend ostream& operator << (ostream& saida, const Robocop& robo){
 		saida << "Robocop ID: " << robo.idOriginal << "\n"
 		<< "Velocidade maxima: " << VELOCIDADE_MAXIMA << "\n"
@@ -123,8 +123,8 @@ public:
 	Robocop(int);
 	Robocop(string&, double = 0.0);
 	~Robocop();
-	//Robocop& operator = (const Robocop&); //operator =
-	//ostream& operator << (const Robocop&); //operator <<
+	const Robocop& operator = (const Robocop&); //operator =
+	ostream& operator << (const Robocop&); //operator <<
 	Data* getDataTransformacao() const;
 	int getIDOriginal() const;
 	string getDiretivaPadrao() const;
@@ -147,7 +147,7 @@ public:
 private:
 	//4 atributos
 	Data* dataTransformacao; //Composição com a classe "Data"
-	vector<Robocop>* vetorRobocopsTransformados; //vector
+	vector<Robocop*> vetorRobocopsTransformados; //vector
 	int idOriginal;
 	static int numeroInstancias; //1 atributo static
 	double velocidade;
@@ -157,7 +157,7 @@ private:
 	int numeroDiretivas;
 	string diretivas[1000]; //1 array
 	void initDiretivas();
-	//Robocop& transformar(const Pessoa&);
+	Robocop* transformar(int);
 	void setDataTransformacao(Data*);
 	void setIDOriginal(int);
 	void setNumeroDiretivas(int);

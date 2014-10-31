@@ -11,8 +11,8 @@ int main(){
 	string array[1];
 	Robocop robocop4(*array);
 	Robocop robocop5(50.0);
-	//Pessoa* p1 = new Robocop();
-	//Robocop* robocop6 = (Robocop*) p1;
+	Pessoa* pessoa1 = new Robocop();
+	Robocop* robocop6 = (Robocop*) pessoa1;
 
 	robocop1.falar("Ola!");
 	robocop1.correr(55.0);
@@ -39,11 +39,11 @@ int main(){
 	
 	cout << "Numero de Robocops: " << Robocop::getNumeroInstancias() << endl;
 
-	/*
+	
 	robocop6->falar("Ola. Agora sou um Robocop.");
 	robocop6->olharDireita();
 	robocop6->correr();
 	robocop6->mostrarDetalhes();
-	*/
+	
 	return 0;
 }
