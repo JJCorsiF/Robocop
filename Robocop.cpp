@@ -62,7 +62,7 @@ ostream& Robocop::operator << (const Robocop& cop){
 	return cout << "Robocop com ID = " << cop.idOriginal << "\n";
 }
 
-Robocop::Robocop(string &conjuntoDiretivas, double vel){// : Pessoa(){
+Robocop::Robocop(string &conjuntoDiretivas, double vel) : Pessoa(){
 	dataTransformacao = new Data();
 	++numeroInstancias;
 	idOriginal = this->Pessoa::id;
